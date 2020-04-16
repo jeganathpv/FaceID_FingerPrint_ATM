@@ -8,3 +8,7 @@ Workspace/NextGenATM/NextGenATM.Services/test.jpg
 Workspace/NextGenATM/NextGenATM.Services/.vscode/.ropeproject/config.py
 Workspace/NextGenATM/NextGenATM.UI/atm-win32-x64.zip
 Workspace/NextGenATM/NextGenATM.UI/atm-win32-x64.exe
+Workspace/.vscode/launch.json
+Workspace/NextGenATM/NextGenATM.Services/backup/*
+Workspace/POC-Testing/.vscode/.ropeproject/config.py
+Workspace/POC-Testing/.vscode/.ropeproject/objectdb

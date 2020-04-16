@@ -18,6 +18,8 @@ export class AtmFlowComponent implements OnInit {
   statusMsg: string = '';
   amountRequired: string = '';
   operationTimedOut: boolean = false;
+  carousalSource = ['1.svg','2.png','3.svg'];
+  imageNumber: number = 0;
   constructor(private middlewareService: MiddlewareService, private timer: TimerService, private messageService: MessageService, private router: Router) { }
 
   ngOnInit() {
@@ -26,10 +28,15 @@ export class AtmFlowComponent implements OnInit {
       setTimeout(() => {
         this.cleanUp();
         this.router.navigate(['atm-flow'])
-      }, 2000)
+      }, 100000)
       this.operationTimedOut = true;
       this.messageService.add({ severity: 'error', summary: 'Operation Timed out', detail: 'No input received' });
     })
+    //Carousel Feature
+    this.imageNumber = Math.floor(Math.random() * (this.carousalSource.length));
+    setInterval(() => {
+      this.changeCarousalImage(); 
+      }, 10000);
   }
 
   /**
@@ -43,6 +50,18 @@ export class AtmFlowComponent implements OnInit {
     this.statusMsg = '';
     this.amountRequired = '';
     this.operationTimedOut = false;
+  }
+
+  /**
+   * To change the image in carousel
+   */
+  changeCarousalImage() {
+    if(this.imageNumber<this.carousalSource.length-1){
+      this.imageNumber++;
+    }
+    else{
+      this.imageNumber = 0;
+    }
   }
 
   /**
